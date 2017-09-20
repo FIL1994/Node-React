@@ -1,7 +1,3 @@
-/**
- * @author Philip Van Raalte
- * @date 2017-09-18.
- */
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');

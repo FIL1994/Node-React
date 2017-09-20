@@ -1,7 +1,3 @@
-/**
- * @author Philip Van Raalte
- * @date 2017-09-18.
- */
 const passport = require('passport');
 
 module.exports = (app) => {
@@ -14,12 +10,15 @@ module.exports = (app) => {
 
   app.get(
     '/auth/google/callback',
-    passport.authenticate('google')
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
   );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {
